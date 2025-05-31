@@ -1,0 +1,585 @@
+.container {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    margin: auto;
+    background-image: url("/cover-img.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* darker overlay */
+    z-index: 1;
+}
+.home {
+    height: 100%;
+    width: 90%;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+.home,
+.content {
+    position: relative;
+    z-index: 2; /* Make sure content is above the dark overlay */
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.content p {
+    font-size: 40px;
+    font-family: cursive;
+    color: #ffffff;
+    font-weight: bold;
+}
+.content p span{
+    font-size: 40px;
+    color: rgb(255,208,0);
+    font-weight: bold;
+}
+.content p:last-child{
+    font-size: 20px;
+}
+
+/* search-here */
+
+.search-here{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+   
+}
+.inner-search{
+    height: 50px;
+    width: 50%;
+    border: 1px solid rgb(255,208,0);
+    border-style: dashed;
+    background-color: rgba(255,208,0,0.1);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.search-fields{
+    height: 40px;
+    width: 95%;
+    margin: auto;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.search-fields input,button,select{
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    padding: 0px 5px;
+    
+}
+.search-fields input,select{
+    border-right: 1px solid #ffd000;
+    border-width: 2px;
+    
+}
+.search-fields button{
+    background-color: rgb(255,208,0);
+    color: #ffff;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+/* contact  */
+.contact-info{
+     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.phone{
+     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.phone span:first-child{
+    font-size: 30px;
+    font-weight: bold;
+    color: #ffff;
+}
+.phone span:first-child{
+    font-size: 30px;
+    font-weight: bold;
+    color: #ffff;
+}
+.phone span:last-child{
+    font-size: 20px;
+    color: #ffff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+.social-links{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.social-links div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgb(255,255,255);
+    border-style: dashed;
+    padding: 10px;
+}
+.social-links div img{
+    width: 100%;
+    height: 100%;
+    
+}
+.social-links div img:hover{
+    cursor: pointer;
+    
+}
+
+
+/* Matrimonial-Listings */
+
+.Matrimonial-Listings{
+    height: fit-content;
+    width: 100%;
+}
+
+.inner-Matrimonial-Listings{
+    height: 100%;
+    width: 90%;
+    margin: auto;
+    padding: 30px;
+}
+.title{
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.title span{
+    font-size: 30px;
+    font-weight: bold;
+    color: #ffd000;
+}
+.filter{
+    width: 80%;
+    height: 100px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.filter-options{
+    height: 30px;
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.filter-options button:first-child{
+   border: 1px solid #ffd000;
+   border-style: dashed;
+   color: #ffd000;
+   background-color: transparent;
+
+}
+.filter-options button{
+   border: 1px solid #ffd000;
+   color: #ffff;
+   background-color: #ffd000;
+
+}
+.filter-options button:hover{
+   border: 1px solid #ffd000;
+   color: #ffd000;
+   background-color: transparent;
+   border-style: dashed;
+   cursor: pointer;
+
+
+}
+.filter-search{
+    width: 40%;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ffd000;
+    
+    
+}
+.filter-search input{
+    width: 80%;
+    height: 100%;
+    border: none;
+    outline: none;
+    padding: 0px 5px;
+}
+.filter-search button{
+    width: 20%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background-color: #ffd000;
+    color: #fff;
+}
+.filter-search button:hover{
+    background-color: #fade63;
+    color: #fff;
+    cursor: pointer;
+}
+/* post */
+.posts{
+    width: 100%;
+    height: fit-content;
+    padding: 5% 0%;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    gap: 20px;
+    
+}
+.card{
+    width: 40%;
+    height: 200px;
+    background-color: white;
+    box-shadow: 3px 3px 10px rgb(168, 168, 168);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    
+}
+.profile{
+    height: 20%;
+    width: 100%;
+     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.inner-profile{
+    width: 50px;
+    height: 50px;
+    
+}
+.inner-profile img{
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+}
+
+.Matrimony-info{
+    height: 60%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+.Matrimony-info div{
+    height: 100%;
+    width: 80%;
+    margin: auto;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+
+.action{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+.action img{
+    width: 25px;
+    height: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.getintouch{
+    height: 20%;
+    width: 100%;
+     display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+.getintouch button{
+    height: 30px;
+    width: 100%;
+    background-color: #ffd000;
+    border: 1px solid transparent;
+    text-align: center;
+    
+
+}
+.getintouch button:hover{
+    background-color: #ffff;
+    border: 1px solid #ffd000;
+    border-style: dashed;
+    cursor: pointer;
+    color: #ffd000;
+}
+/* loard more post */
+.btn{
+    width: 90%;
+    height: 50px;
+    margin: auto;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+}
+.btn div{
+    width: 100%;
+    height: 30px;
+    margin: auto;
+    color: #ffff;
+    text-align: right;
+
+}
+.btn div button{
+    width: 20%;
+    height: 30px;
+    margin: auto;
+    background-color: #000000;
+    color: #ffff;
+    border: 1px solid transparent;
+
+}
+.btn div button:hover{
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid;
+    border-style: dashed;
+    cursor: pointer;
+
+}
+/* border: 1px solid #ffd000; */
+
+/* Gallery */
+.Gallery{
+    width: 100%;
+    height: fit-content;
+}
+.image-collection{
+    width: 90%;
+    height: 100%;
+    margin: auto;
+}
+.Gallery-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+.collection1,.collection2,.collection3{
+    width: 100%;
+    height: 300px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+.collection1 div,.collection2 div,.collection3 div{
+    width: 20%;
+    height: 80%;
+    transform: rotate(20deg);
+}
+.collection1 div img,.collection2 div img,.collection3 div img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+/* reviews-section */
+.reviews-section{
+    height: fit-content;
+    width: 100%;
+}
+.reviews-contant{
+    width: 90%;
+    height: 100%;
+    margin: auto;
+    padding: 50px;
+}
+.review-card-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.left-arrow,.right-arrow{
+    width: 10%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.right-arrow{
+   transform: rotate(180deg);
+}
+.left-arrow div,.right-arrow div{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.left-arrow div:hover,.right-arrow div:hover{
+    width: 30px;
+    height: 30px;
+    background-color: rgba(255,208,0,0.3);
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 10px;
+}
+.left-arrow div img,.right-arrow div img{
+    width: 100%;
+    height: 100%;
+
+}
+
+.reviews{
+    width: 80%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255,208,0,0.2);
+    padding: 25px;
+    gap: 20px;
+    border-radius: 10px;
+}
+.review-card{
+    height: 300px;
+    width: 25%;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px gray;
+    background-color: rgb(255, 255, 255);
+    padding: 5px;
+}
+.review-card:hover{
+    height: 300px;
+    width: 25%;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px gray;
+    background-color: #ffff;
+    padding: 5px;
+
+}
+.reviwer-profile{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.reviwer-profile div{
+    width: 100px;
+    height: 100px;
+}
+.reviwer-profile img{
+    height: 100%;
+    width: 100%;
+    border-radius: 50px;
+}
+.reviwer-msg{
+    width: 100%;
+    height: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+}
+.reviwer-msg div{
+    width: 90%;
+    margin: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+}
+.reviwer-name{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: right;
+}
