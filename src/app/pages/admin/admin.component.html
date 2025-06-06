@@ -3,11 +3,17 @@
     <div class="logo">Admin Panel</div>
     <nav>
       <ul>
-        <li><a routerLink="/admin/dashboard" routerLinkActive="active">Dashboard</a></li>
-        <li><a routerLink="/admin/users" routerLinkActive="active">Users</a></li>
-        <li><a routerLink="/admin/settings" routerLinkActive="active">Settings</a></li>
-        <li><a routerLink="/admin/reports" routerLinkActive="active">Reports</a></li>
+        <li ><a routerLink="/admin/dashboard" routerLinkActive="active">Dashboard</a></li>  <!--routerLink="/admin/addpost" routerLinkActive="active"-->
+        <li><a routerLink="/admin/addpost" routerLinkActive="active">Add Post</a></li>
+        <li><a >Settings</a></li>
+        <li><a >Reports</a></li>
       </ul>
     </nav>
+
+    <div>
+    </div>
   </aside>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
 </div>

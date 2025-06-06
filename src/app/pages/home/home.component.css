@@ -459,6 +459,7 @@
 .Gallery{
     width: 100%;
     height: fit-content;
+    background-color: linear-gradient(135deg, #ffd0005e, #ee09095e);
 }
 .image-collection{
     width: 90%;

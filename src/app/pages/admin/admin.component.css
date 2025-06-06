@@ -43,11 +43,14 @@
 .sidebar nav ul li a.active {
   background-color: #34495e;
   color: white;
+  cursor: pointer;
 }
 
-.main-content {
-  flex-grow: 1;
-  padding: 2rem;
-  background-color: #ecf0f1;
-  overflow-y: auto;
+main{
+  width: 100%;
+  height: 100%;
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+ align-items: center;
 }
