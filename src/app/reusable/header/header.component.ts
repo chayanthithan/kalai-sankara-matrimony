@@ -1,5 +1,5 @@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { Component, HostListener, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { filter } from 'rxjs';
 
@@ -29,6 +29,25 @@ export class HeaderComponent implements OnInit{
           this.currentUrl = event.url;
         });
     }
+
+  }
+isMenuOpen = false;
+
+  toggleMenu(): void {
+    this.isMenuOpen = !this.isMenuOpen;
   }
 
+  // Optional: Close menu when clicking outside
+  @HostListener('document:click', ['$event'])
+  onClick(event: Event): void {
+    const target = event.target as HTMLElement;
+    if (!target.closest('.mobile-menu-toggle') && !target.closest('.nav-links')) {
+      this.isMenuOpen = false;
+    }
+  }
+
+  // Optional: Close menu on navigation
+  closeMenu(): void {
+    this.isMenuOpen = false;
+  }
 }

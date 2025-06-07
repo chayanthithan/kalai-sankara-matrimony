@@ -1,137 +1,211 @@
-.container {
-    height: 95vh;
+/* Base Styles */
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: var(--light-gray);
+}
+
+.material-icons {
+    font-size: 16px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+/* Admin Panel Layout */
+.admin-panel {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: var(--light-gray);
+}
+
+.matrimony-service-form {
     width: 100%;
-    margin: auto;
+    max-width: 1000px;
+    height: 100%;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
-.matrimony-details{
-  width: 100%;
-  height: 100%;
-  margin: auto;
-  /* background-color: rgba(255, 208, 0, 0.1) */
+
+/* Header Section */
+.header-section {
+    padding: 20px;
+    text-align: center;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
-.header {
-   width: 100%;
-  height: 25%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 1px solid #000;
-  gap: 10px;
-  
+
+.title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    padding-bottom: 10px;
 }
 
 .contact-info {
-   width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  font-size: 10px;
-  margin-top: 5px;
-}
-.contact-details{
-  display: flex;
-  flex-direction: column;
-  font-size: 10px;
-  margin-top: 5px;
-  text-align: left;
-}
-.description{
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-.description span{
-  width: 80%;
-  text-align: center;
-  font-size: 10px;
-}
-.section {
-  width: 100%;
-  height: 65%;
-  /* display: flex;
-  flex-direction: column; */
-  justify-content: center;
-  overflow-y: auto;
-  padding-top: 20px;
-  align-items: center;
-}
-.inner-section {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 10px;
-  align-items: center;
-  overflow-y: auto;
-}
-.inner-section div{
-  width: 50%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  font-size: 12px;
-  /* padding: 5px; */
-}
-.inner-section label {
-  width: 50%;
-  display: inline-block;
-
-}
-.inner-section input {
-  width: 50%;
-  margin-bottom: 8px;
-  outline: none;
-  border-bottom: 1px solid;
-  border-style: dashed;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 15px;
+    font-size: 14px;
 }
 
-.charts {
-  width: 100%;
-  height: 20%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+.register-no {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px 10px;
+    border-radius: 4px;
 }
 
-.chart {
-  width: 150px;
-  height: 150px;
-  border: 1px solid #000;
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
 }
 
-.center-img {
-  height: 150px;
+.contact-details span {
+    margin: 3px 0;
 }
-.btn{
-  width: 100%;
-  height: 9%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+
+.description {
+    margin-top: 15px;
+    font-size: 14px;
+    line-height: 1.5;
 }
-.btn button{
-  width: 25%;
-  height: 30px;
-  background-color: rgb(0, 0, 0);
-  border: 1px solid transparent;
-  outline: none;
-  font-weight: 600;
-  color: white;
+
+.description p {
+    margin: 0;
+    padding: 0 20px;
 }
-.btn button:hover{
-  background-color: rgba(255, 255, 255, 0.349);
-  border: 1px solid rgb(0, 0, 0);
-  outline: none;
-  border-style: dashed;
-  cursor: pointer;
+
+/* Form Section */
+.form-section {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.form-group input {
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 2px rgba(123, 31, 162, 0.2);
+}
+
+.siblings-group {
+    grid-column: span 2;
+}
+
+.siblings-input {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.siblings-input div {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Action Buttons */
+.action-buttons {
+    padding: 15px 20px;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    background: white;
+}
+
+.save-btn {
+    padding: 10px 30px;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.save-btn:hover {
+    background-color: #c2185b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .admin-panel {
+        padding: 10px;
+    }
+    
+    .contact-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .contact-details {
+        text-align: center;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .siblings-group {
+        grid-column: span 1;
+    }
+    
+    .save-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 20px;
+    }
+    
+    .description p {
+        padding: 0;
+        text-align: left;
+    }
+    
+    .form-section {
+        padding: 15px;
+    }
 }

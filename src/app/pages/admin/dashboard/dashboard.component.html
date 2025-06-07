@@ -1,19 +1,33 @@
-<div class="container">
-    <div class="dashboard">
-            <div class="filter">
-                <div class="filter-options">
-                    <button>All</button>
-                    <button>Groom</button>
-                    <button>Bride</button>
-                </div>
-                <div class="filter-search">
-                    <input type="text" name="search" id="search" placeholder="type here.. ">
-                    <button>search</button>
-                </div>
-
+<div class="admin-panel">
+    <div class="matrimony-details">
+        <div class="search-options">
+            <button>Matrimony Details</button>
+            <button>Reviews</button>
+            <div class="search-box">
+                <input type="text" placeholder="Search...">
+                <span class="material-icons">search</span>
             </div>
-            <div class="table-section">
-                <span>hi</span>
+        </div>
+        <div class="table-container">
+            <div class="table-wrapper">
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th *ngFor="let header of headers.slice(0, 14)">{{ header }}</th>
+                            <th class="sticky-column">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let row of data">
+                            <td *ngFor="let col of row.slice(0, 14)">{{ col }}</td>
+                            <td class="sticky-column">
+                                <button (click)="edit(row)">Edit</button>
+                                <button (click)="delete(row)">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+        </div>
     </div>
 </div>

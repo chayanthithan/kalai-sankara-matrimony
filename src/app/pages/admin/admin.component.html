@@ -1,19 +1,68 @@
-<div class="admin-container">
-  <aside class="sidebar">
-    <div class="logo">Admin Panel</div>
-    <nav>
+<div class="admin-dashboard">
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">
+        <span class="logo-icon">⚙️</span>
+        <span class="logo-text">Admin Panel</span>
+      </div>
+      <button class="menu-toggle">
+        <span class="material-icons">menu</span>
+      </button>
+    </div>
+    
+    <nav class="sidebar-nav">
       <ul>
-        <li ><a routerLink="/admin/dashboard" routerLinkActive="active">Dashboard</a></li>  <!--routerLink="/admin/addpost" routerLinkActive="active"-->
-        <li><a routerLink="/admin/addpost" routerLinkActive="active">Add Post</a></li>
-        <li><a >Settings</a></li>
-        <li><a >Reports</a></li>
+        <li>
+          <a routerLink="/admin/dashboard" routerLinkActive="active">
+            <span class="material-icons">dashboard</span>
+            <span class="nav-text">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/admin/addpost" routerLinkActive="active">
+            <span class="material-icons">post_add</span>
+            <span class="nav-text">Add Post</span>
+          </a>
+        </li>
+        <li>
+          <a>
+            <span class="material-icons">settings</span>
+            <span class="nav-text">Settings</span>
+          </a>
+        </li>
+        <li>
+          <a>
+            <span class="material-icons">analytics</span>
+            <span class="nav-text">Reports</span>
+          </a>
+        </li>
       </ul>
     </nav>
-
-    <div>
+    
+    <div class="sidebar-footer">
+      <div class="user-profile">
+        <span class="material-icons">account_circle</span>
+        <span class="user-name">Admin User</span>
+      </div>
     </div>
-  </aside>
-  <main>
-    <router-outlet></router-outlet>
-  </main>
+  </div>
+  
+  <div class="main-content">
+    <div class="content-header">
+      <h2 class="page-title">sample</h2>
+      <div class="header-actions">
+        <button class="notification-btn">
+          <span class="material-icons">notifications</span>
+          <span class="badge">3</span>
+        </button>
+        <button class="user-menu">
+          <span class="material-icons">more_vert</span>
+        </button>
+      </div>
+    </div>
+    
+    <div class="content-wrapper">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>

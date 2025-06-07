@@ -1,146 +1,213 @@
-.container{
+/* Login Container */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
-    width: 100%;
-}
-.login{
-    width: 90%;
-    height:100%;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 50px;
-}
-.content{
-    width: 30%;
-    height: 70%;
-    background-color: rgba(255, 187, 0, 0.233);
-    border-radius: 15px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.close{
-    width: 100%;
-    height: 10%;
-    margin: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    background-color: rgba(255, 208, 0, 0.6);
-    border-radius: 15px 15px 0px 0px;
-    color: gray;
-    
-    
-}
-.close div{
-    padding: 10px;
-}
-.close div span{
-    padding: 3px;
-}
-.close div span:hover{
-    padding: 3px;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
-    cursor: pointer;
+    background: linear-gradient(135deg, #fff9f9 0%, #fff5f0 100%);
 }
 
-.logo{
-    height: 30%;
+.login-box {
+    position: relative;
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-.logo div{
-    width: 80px;
-    height: 80px;
-    padding: 10px;
-    border: 1px solid rgba(255, 208, 0, 0.6);
-    border-style: dashed;
-    border-radius: 50%;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-.logo div:hover{
-    background-color: rgba(255, 208, 0, 0.4);
-    border-radius: 50%;
-    cursor: pointer;
-}
-.logo div img{
-    width: 100%;
-    height: 100%;
-}
-.title{
-    height: 10%;
-    width: 100%;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-.title span{
-    font-size: 30px;
-    font-weight: bold;
-}
-.fields{
-    height: 30%;
-    width: 100%;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    color: rgba(49, 41, 3, 0.692);;
-}
-.fields div{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 1px solid rgba(255, 208, 0, 0.9);
-    
+    max-width: 420px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 2.5rem;
+    animation: fadeIn 0.5s ease;
 }
 
-.fields div input{
-   padding: 5px 20px;
-   outline: none;
-   border:none;
-   background-color: transparent;
-}
-.btn{
-   height: 20%;
-    width: 80%; 
-     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    font-weight: 800;
-    
-}
-.btn button{
-   height: 35%;
-    width: 40%; 
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
     border: none;
-    outline: none;
-    background-color: rgba(255, 208, 0, 0.9);
-    border: 1px solid transparent;
-    border-radius: 5px;
-}
-.btn button:hover{
-    background-color: rgba(255, 208, 0, 0.1);
-    border: 1px solid rgba(255, 208, 0, 0.9);
+    color: #666;
     cursor: pointer;
-    border-style: dashed;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #d00000;
+}
+
+/* Logo Section */
+.logo-container {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.logo {
+    height: 80px;
+    width: auto;
+    margin-bottom: 1rem;
+}
+
+.brand-name {
+    font-size: 1.3rem;
+    color: #d00000;
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Login Form */
+.login-form {
+    margin-top: 1.5rem;
+}
+
+.login-title {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.login-subtitle {
+    color: #666;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+}
+
+/* Form Elements */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #555;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 15px;
+    color: #888;
+    font-size: 1.2rem;
+}
+
+.visibility-icon {
+    position: absolute;
+    right: 15px;
+    color: #888;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #ffd166;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 209, 102, 0.2);
+}
+
+/* Forgot Password */
+.forgot-password {
+    text-align: right;
+    margin-bottom: 1.5rem;
+}
+
+.forgot-password a {
+    color: #666;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.forgot-password a:hover {
+    color: #d00000;
+}
+
+/* Login Button */
+.login-button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(to right, #d00000, #ff6b6b);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(208, 0, 0, 0.2);
+}
+
+.login-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(208, 0, 0, 0.3);
+}
+
+.button-icon {
+    font-size: 1.2rem;
+}
+
+/* Sign Up Link */
+.signup-link {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.signup-link a {
+    color: #d00000;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .login-box {
+        padding: 1.5rem;
+    }
+    
+    .logo {
+        height: 60px;
+    }
+    
+    .brand-name {
+        font-size: 1.1rem;
+    }
+    
+    .login-title {
+        font-size: 1.5rem;
+    }
 }

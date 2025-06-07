@@ -8,6 +8,7 @@ import { EmptyLayoutComponent } from './layouts/empty-layout/empty-layout.compon
 import { MatrimonyComponent } from './pages/matrimony/matrimony.component';
 import { AddpostComponent } from './pages/admin/addpost/addpost.component';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 export const routes: Routes = [
   {
@@ -16,6 +17,7 @@ export const routes: Routes = [
     children: [
       { path: '', component: HomeComponent },
       { path: 'about', component: AboutComponent },
+      { path: 'contact', component: ContactComponent },
       { path: '**', redirectTo: 'home' }
     ]
   },
