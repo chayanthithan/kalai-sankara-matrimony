@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collection, addDoc, collectionData, doc, updateDoc, deleteDoc } from '@angular/fire/firestore';
+import { getDocs, query, where,Firestore, collection, addDoc, collectionData, doc, updateDoc, deleteDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { AdminDto } from '../model/AdminDto';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,8 @@ export class FirebaseService {
     const userRef = collection(this.firestore, 'users');
     return addDoc(userRef, user);
   }
+ 
+  
 
   getUsers(): Observable<any[]> {
     const userRef = collection(this.firestore, 'users');
@@ -27,4 +30,16 @@ export class FirebaseService {
     const userDocRef = doc(this.firestore, `users/${id}`);
     return deleteDoc(userDocRef);
   }
+
+  
+
+  validateAdminLogin(username: string, password: string): Promise<boolean> {
+    const userRef = collection(this.firestore, 'loginDetails');
+    const q = query(userRef, where('username', '==', username), where('password', '==', password), where('role', '==', 'ADMIN'));
+    
+    return getDocs(q).then(snapshot => {
+      return !snapshot.empty; // true if user found
+    });
+  }
+
 }

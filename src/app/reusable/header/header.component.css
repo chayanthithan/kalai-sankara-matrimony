@@ -34,7 +34,7 @@
 }
 
 .tamil-title {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: #d00000;
     margin: 0;
     font-weight: 700;
@@ -44,6 +44,8 @@
     font-size: 0.9rem;
     color: #666;
     margin: 0;
+    text-align: center;
+    color: #ffd166;
 }
 
 /* Navigation Links */
