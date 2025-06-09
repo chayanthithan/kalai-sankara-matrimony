@@ -447,6 +447,10 @@
     background-color: #e83e3e;
     color: white;
 }
+.filter-options button.active{
+    background-color: #e83e3e;
+    color: white;
+}
 
 .filter-search {
     display: flex;
@@ -541,7 +545,7 @@
 }
 
 .action span:hover {
-    background: #e83e8c;
+    background: #d42d2d;
     color: white;
 }
 
@@ -1052,6 +1056,15 @@
     font-size: 1.1rem;
     color: #666;
     margin-top: 1rem;
+}
+.section-header p a{
+    color: #ff6666;
+    text-decoration: underline;
+}
+.section-header p a:hover{
+    color: #d00000;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 /* Carousel Container */

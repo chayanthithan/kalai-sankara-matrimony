@@ -49,9 +49,9 @@
         </div>
         <div class="filter">
             <div class="filter-options">
-                <button>All</button>
-                <button>Groom</button>
-                <button>Bride</button>
+                <button [ngClass]="{ 'active': selectedCategory === 'all' }" (click)="selectCategory('all')">All</button>
+                <button [ngClass]="{ 'active': selectedCategory === 'groom' }" (click)="selectCategory('groom')">Groom</button>
+                <button [ngClass]="{ 'active': selectedCategory === 'bride' }" (click)="selectCategory('bride')">Bride</button>
             </div>
             <div class="filter-search">
                 <input type="text" name="search" id="search" placeholder="type here.. ">
@@ -61,238 +61,36 @@
         </div>
         <div class="posts">
             <!-- card 01 -->
-            <div class="card">
+             
+            <div *ngFor="let matrimony of this.matrimonyDetails" class="card">
                 <div class="profile">
                     <div class="inner-profile">
-                        <img src="/young-handsome-groom-smiling-holding-bridal-bouquet.jpg" alt="groom">
+                        <img [src]="matrimony.category === 'groom'?'/young-handsome-groom-smiling-holding-bridal-bouquet.jpg':'young-beautiful-stylish-woman-wedding-dress (1).jpg'" alt="groom">
                     </div>
                     <div class="action">
-                        <span class="material-icons">edit</span>
-                        <span class="material-icons">delete</span>
+                        <span class="material-icons">open_in_new</span>
                     </div>
                 </div>
                 <div class="Matrimony-info">
                     <div>
                         <span>FullName</span>
-                        <span>Chayan Kumar</span>
+                        <span>{{matrimony.fname}}{{" "}}{{matrimony.lname}}</span>
                     </div>
                     <div>
                         <span>DOB</span>
-                        <span>1999-12-15</span>
+                        <span>{{matrimony.dob}}</span>
                     </div>
                     <div>
                         <span>Age</span>
-                        <span>26</span>
+                        <span>{{matrimony.age}}</span>
                     </div>
                     <div>
                         <span>Occupation</span>
-                        <span>Software Engineer</span>
-                    </div>
-                    <div>
-                        <span>Address</span>
-                        <span>Kilinochchi</span>
+                        <span>{{matrimony.occupation}}</span>
                     </div>
                 </div>
                 <div class="getintouch">
 
-                    <div class="view">
-                        <button>Get in touch</button>
-                    </div>
-                </div>
-            </div>
-            <!-- card 02 -->
-            <div class="card">
-                <div class="profile">
-                    <div class="inner-profile">
-                        <img src="/young-beautiful-stylish-woman-wedding-dress (1).jpg" alt="groom">
-                    </div>
-                    <div class="action">
-                        <span class="material-icons">edit</span>
-                        <span class="material-icons">delete</span>
-                    </div>
-                </div>
-                <div class="Matrimony-info">
-                    <div>
-                        <span>FullName</span>
-                        <span>Chayan Kumar</span>
-                    </div>
-                    <div>
-                        <span>DOB</span>
-                        <span>1999-12-15</span>
-                    </div>
-                    <div>
-                        <span>Age</span>
-                        <span>26</span>
-                    </div>
-                    <div>
-                        <span>Occupation</span>
-                        <span>Software Engineer</span>
-                    </div>
-                    <div>
-                        <span>Address</span>
-                        <span>Kilinochchi</span>
-                    </div>
-                </div>
-                <div class="getintouch">
-
-                    <div class="view">
-                        <button>Get in touch</button>
-                    </div>
-                </div>
-            </div>
-            <!-- card 01 -->
-            <div class="card">
-                <div class="profile">
-                    <div class="inner-profile">
-                        <img src="/young-handsome-groom-smiling-holding-bridal-bouquet.jpg" alt="groom">
-                    </div>
-                    <div class="action">
-                        <span class="material-icons">edit</span>
-                        <span class="material-icons">delete</span>
-                    </div>
-                </div>
-                <div class="Matrimony-info">
-                    <div>
-                        <span>FullName</span>
-                        <span>Chayan Kumar</span>
-                    </div>
-                    <div>
-                        <span>DOB</span>
-                        <span>1999-12-15</span>
-                    </div>
-                    <div>
-                        <span>Age</span>
-                        <span>26</span>
-                    </div>
-                    <div>
-                        <span>Occupation</span>
-                        <span>Software Engineer</span>
-                    </div>
-                    <div>
-                        <span>Address</span>
-                        <span>Kilinochchi</span>
-                    </div>
-                </div>
-                <div class="getintouch">
-
-                    <div class="view">
-                        <button>Get in touch</button>
-                    </div>
-                </div>
-            </div>
-            <!-- card 02 -->
-            <div class="card">
-                <div class="profile">
-                    <div class="inner-profile">
-                        <img src="/young-beautiful-stylish-woman-wedding-dress (1).jpg" alt="groom">
-                    </div>
-                    <div class="action">
-                        <span class="material-icons">edit</span>
-                        <span class="material-icons">delete</span>
-                    </div>
-                </div>
-                <div class="Matrimony-info">
-                    <div>
-                        <span>FullName</span>
-                        <span>Chayan Kumar</span>
-                    </div>
-                    <div>
-                        <span>DOB</span>
-                        <span>1999-12-15</span>
-                    </div>
-                    <div>
-                        <span>Age</span>
-                        <span>26</span>
-                    </div>
-                    <div>
-                        <span>Occupation</span>
-                        <span>Software Engineer</span>
-                    </div>
-                    <div>
-                        <span>Address</span>
-                        <span>Kilinochchi</span>
-                    </div>
-                </div>
-                <div class="getintouch">
-
-                    <div class="view">
-                        <button>Get in touch</button>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="profile">
-                    <div class="inner-profile">
-                        <img src="/young-handsome-groom-smiling-holding-bridal-bouquet.jpg" alt="groom">
-                    </div>
-                    <div class="action">
-                        <span class="material-icons">edit</span>
-                        <span class="material-icons">delete</span>
-                    </div>
-                </div>
-                <div class="Matrimony-info">
-                    <div>
-                        <span>FullName</span>
-                        <span>Chayan Kumar</span>
-                    </div>
-                    <div>
-                        <span>DOB</span>
-                        <span>1999-12-15</span>
-                    </div>
-                    <div>
-                        <span>Age</span>
-                        <span>26</span>
-                    </div>
-                    <div>
-                        <span>Occupation</span>
-                        <span>Software Engineer</span>
-                    </div>
-                    <div>
-                        <span>Address</span>
-                        <span>Kilinochchi</span>
-                    </div>
-                </div>
-                <div class="getintouch">
-
-                    <div class="view">
-                        <button>Get in touch</button>
-                    </div>
-                </div>
-            </div>
-            <!-- card 02 -->
-            <div class="card">
-                <div class="profile">
-                    <div class="inner-profile">
-                        <img src="/young-beautiful-stylish-woman-wedding-dress (1).jpg" alt="groom">
-                    </div>
-                    <div class="action">
-                        <span class="material-icons">edit</span>
-                        <span class="material-icons">delete</span>
-                    </div>
-                </div>
-                <div class="Matrimony-info">
-                    <div>
-                        <span>FullName</span>
-                        <span>Chayan Kumar</span>
-                    </div>
-                    <div>
-                        <span>DOB</span>
-                        <span>1999-12-15</span>
-                    </div>
-                    <div>
-                        <span>Age</span>
-                        <span>26</span>
-                    </div>
-                    <div>
-                        <span>Occupation</span>
-                        <span>Software Engineer</span>
-                    </div>
-                    <div>
-                        <span>Address</span>
-                        <span>Kilinochchi</span>
-                    </div>
-                </div>
-                <div class="getintouch">
                     <div class="view">
                         <button>Get in touch</button>
                     </div>
@@ -426,12 +224,12 @@
         <a routerLink="/contact" class="cta-button">Find Your Match</a>
     </div>
 </div>
-
+<!-- reviews -->
 <div class="testimonials-section" id="reviews">
     <div class="testimonials-container">
         <div class="section-header">
-            <h2>Customers Thoughts</h2>
-            <p>What our happy couples say about us</p>
+            <h2>Customers Thoughts </h2>
+            <p>What our happy couples say about us. <a routerLink="/reviews">post your thoughs</a></p>
         </div>
 
         <div class="testimonials-carousel">

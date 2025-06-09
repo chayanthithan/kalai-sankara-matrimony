@@ -1,0 +1,70 @@
+<div class="review-submission-container">
+  <div class="review-header">
+    <h1>Share Your Experience</h1>
+    <p>Help others find their perfect match by sharing your success story</p>
+  </div>
+
+  <form class="review-form" [formGroup]="this.reviewForm" (submit)="addReviews()">
+    <!-- Couple Information -->
+    <div class="form-section couple-info">
+      <h2><span class="icon">💑</span> About You</h2>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="groom-name">Groom's Name</label>
+          <input formControlName="groomName" type="text" id="groom-name" placeholder="Enter groom's name">
+        </div>
+        <div class="form-group">
+          <label for="bride-name">Bride's Name</label>
+          <input formControlName="brideName" type="text" id="bride-name" placeholder="Enter bride's name">
+        </div>
+        <div class="form-group">
+          <label for="wedding-date">Wedding Date</label>
+          <input formControlName="weddingDate"  type="date" id="wedding-date">
+        </div>
+      </div>
+    </div>
+
+    <!-- Review Content -->
+    <div class="form-section review-content">
+      <h2><span class="icon">✍️</span> Your Review</h2>
+      <div class="form-group">
+        <label for="review-text">Your Experience</label>
+        <textarea formControlName="message" id="review-text" rows="5" placeholder="Tell us about your experience..."></textarea>
+      </div>
+      <div class="form-group">
+        <label>Rating</label>
+        <div class="rating-stars">
+          <span class="star" data-value="1">★</span>
+          <span class="star" data-value="2">★</span>
+          <span class="star" data-value="3">★</span>
+          <span class="star" data-value="4">★</span>
+          <span class="star" data-value="5">★</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Photo Upload -->
+    <div class="form-section photo-upload">
+      <h2><span class="icon">📷</span> Wedding Photo (Optional)</h2>
+      <div class="upload-area">
+        <div class="upload-prompt">
+          <span class="material-icons">photo_camera</span>
+          <p>Click to upload your wedding photo</p>
+          <small>Max file size: 5MB</small>
+        </div>
+        <input type="file" id="wedding-photo" accept="image/*">
+      </div>
+    </div>
+
+    <!-- Submission -->
+    <div class="form-footer">
+      <button type="submit" class="submit-btn">
+        Submit Review
+        <span class="material-icons">send</span>
+      </button>
+      <p class="disclaimer">
+        By submitting, you agree to our <a href="#">Terms of Service</a> and confirm this is your genuine experience.
+      </p>
+    </div>
+  </form>
+</div>

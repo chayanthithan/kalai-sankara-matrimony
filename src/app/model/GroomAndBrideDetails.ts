@@ -3,6 +3,7 @@ export interface GroomAndBrideDetails{
 caste:string,
 color:string,
 dob:Date,
+time:string,
 education:string,
 expectation:string,
 fatherBirthPlace:string,
@@ -18,4 +19,5 @@ siblingBoys:number,
 siblingGirls:number,
 willingCaste:string,
 zodiacSign:string,
+category:string,
 }

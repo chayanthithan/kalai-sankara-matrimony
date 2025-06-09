@@ -32,6 +32,7 @@ export class FirebaseService {
   }
 
   
+// new methods are below
 
   validateAdminLogin(username: string, password: string): Promise<boolean> {
     const userRef = collection(this.firestore, 'loginDetails');
@@ -40,6 +41,19 @@ export class FirebaseService {
     return getDocs(q).then(snapshot => {
       return !snapshot.empty; // true if user found
     });
+  }
+
+  addMatrimonyDetailsPost(matrimony: any) {
+    const userRef = collection(this.firestore, 'groomAndBrideDetails');
+    return addDoc(userRef, matrimony);
+  }
+  getMatrimonyDetails(): Observable<any[]> {
+      const userRef = collection(this.firestore, 'groomAndBrideDetails');
+      return collectionData(userRef, { idField: 'id' });
+    }
+  addReviews(review: any) {
+    const userRef = collection(this.firestore, 'reviews');
+    return addDoc(userRef, review);
   }
 
 }
