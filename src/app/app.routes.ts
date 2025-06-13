@@ -20,6 +20,8 @@ export const routes: Routes = [
       { path: 'about', component: AboutComponent },
       { path: 'contact', component: ContactComponent },
       { path: 'reviews', component: ReviewsComponent },
+      { path: 'matrimony-details', component: MatrimonyComponent },
+      { path: 'home', component: HomeComponent },
       { path: '**', redirectTo: 'home' }
     ]
   },

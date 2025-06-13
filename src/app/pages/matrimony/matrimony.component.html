@@ -1,62 +1,112 @@
 <div class="container">
-    <div class="matrimony-details">
-        <div class="header">
-            <div>
-                <h3>கலை சாங்கரா திருமண சேவை</h3>
-            </div>
-            <div class="contact-info">
-                <div class="register_no">
-                    <span>பதிவு எண்: kn7287</span>
+        <div class="matrimony-details">
+            <div class="header">
+                <div>
+                    <h3>கலை சாங்கரா திருமண சேவை</h3>
                 </div>
-                <div class="contact-details">
-                    <span>தொடர்புக்கு : 076 0867065</span>
-                    <span>WhatsApp / Viber : 074 0567065</span>
-                    <span>Email: pinragulive&#64;gmail.com</span>
+                <div class="contact-info">
+                    <div class="register_no">
+                        <span>பதிவு எண்: kn7287</span>
+                    </div>
+                    <div class="contact-details">
+                        <span>தொடர்புக்கு : 076 0867065</span>
+                        <span>WhatsApp / Viber : 074 0567065</span>
+                        <span>Email: pinragulive&#64;gmail.com</span>
+                    </div>
                 </div>
-
-            </div>
-            <div class="description">
-                <span>எங்களிடம் அனைத்து சாதியினருக்கும் வரன் அமைத்து தரப்படும்
-                    மற்றும் மறுமணம் பார்ப்தோடு
-                    வெளிநாட்டு வரன்களும் சிறந்த முறையில் நம்பிக்கையுடன் அமைத்து தரப்படும்</span>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="inner-section">
-                <div><label>பெயர்:</label><input type="text"></div>
-                <div><label>நீளம்:</label><input type="text"></div>
-                <div><label>பிறந்த நாள்:</label><input type="text"></div>
-                <div><label>பிறந்த நேரம்:</label><input type="text"></div>
-                <div><label>கல்வி:</label><input type="text"></div>
-                <div><label>சாதி:</label><input type="text"></div>
-                <div><label>தொழில்:</label><input type="text"></div>
-                <div><label>மணம் முடிக்க விரும்பும் சாதி:</label><input type="text"></div>
-                <div><label>உடன் பிறப்பு: </label>
-                    <div><label>ஆண்:</label><input type="text"><label>பெண்:</label><input type="text"></div>
+                <div class="description">
+                    <span>எங்களிடம் அனைத்து சாதியினருக்கும் வரன் அமைத்து தரப்படும் மற்றும் மறுமணம் பார்ப்தோடு வெளிநாட்டு வரன்களும் சிறந்த முறையில் நம்பிக்கையுடன் அமைத்து தரப்படும்</span>
                 </div>
-                <div><label>தந்தையின் பெயர்:</label><input type="text"></div>
-                <div><label>தாயின் பெயர்:</label><input type="text"></div>
-                <div><label>தந்தை சொந்த இடம்:</label><input type="text"></div>
-                <div><label>தாய் சொந்த இடம்:</label><input type="text"></div>
-                <div><label>உயரம்:</label><input type="text"></div>
-                <div><label>ராசி:</label><input type="text"></div>
-                <div><label>நட்சத்திரம்:</label><input type="text"></div>
-                <div><label>எதிர்பார்ப்பு:</label><input type="text"></div>
             </div>
 
-        </div>
+            <div class="section">
+                <div class="profile-grid">
+                    <div class="profile-item">
+                        <div class="profile-label">பெயர்:</div>
+                        <div class="profile-value">{{matrimonyData.fname}} {{" "}} {{matrimonyData.lname}}</div>
+                    </div>
+                    <div class="profile-item">
+                        <div class="profile-label">நிறம்:</div>
+                        <div class="profile-value">{{matrimonyData.color}}</div>
+                    </div>
+                    <div class="profile-item">
+                        <div class="profile-label">பிறந்த நாள்:</div>
+                        <div class="profile-value">{{matrimonyData.dob}}</div>
+                    </div>
+                    <div class="profile-item">
+                        <div class="profile-label">பிறந்த நேரம்:</div>
+                        <div class="profile-value">{{matrimonyData.time}}</div>
+                    </div>
+                    <div class="profile-item">
+                        <div class="profile-label">கல்வி:</div>
+                        <div class="profile-value">{{matrimonyData.education}}</div>
+                    </div>
+                    <div class="profile-item">
+                        <div class="profile-label">சாதி:</div>
+                        <div class="profile-value">{{matrimonyData.caste}}</div>
+                    </div>
+                    <div class="profile-item">
+                        <div class="profile-label">தொழில்:</div>
+                        <div class="profile-value">{{matrimonyData.occupation}}</div>
+                    </div>
+                    <div class="profile-item">
+                        <div class="profile-label">மணம் முடிக்க விரும்பும் சாதி:</div>
+                        <div class="profile-value">{{matrimonyData.willingCaste}}</div>
+                    </div>
+                    <div class="profile-item">
+                        <div class="profile-label">உடன் பிறப்பு:</div>
+                        <div class="profile-value">
+                            <div class="siblings-container">
+                                <div class="sibling-item">
+                                    <span class="sibling-label">ஆண்:</span>
+                                    <span>{{matrimonyData.siblingBoys}}</span>
+                                </div>
+                                <div class="sibling-item">
+                                    <span class="sibling-label">பெண்:</span>
+                                    <span>{{matrimonyData.siblingGirls}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-item">
+                        <div class="profile-label">தந்தையின் பெயர்:</div>
+                        <div class="profile-value">{{matrimonyData.fatherName}}</div>
+                    </div>
+                    <div class="profile-item">
+                        <div class="profile-label">தாயின் பெயர்:</div>
+                        <div class="profile-value">{{matrimonyData.motherName}}</div>
+                    </div>
+                    <div class="profile-item">
+                        <div class="profile-label">தந்தை சொந்த இடம்:</div>
+                        <div class="profile-value">{{matrimonyData.fatherBirthPlace}}</div>
+                    </div>
+                    <div class="profile-item">
+                        <div class="profile-label">தாய் சொந்த இடம்:</div>
+                        <div class="profile-value">{{matrimonyData.motherBirthPlace}}</div>
+                    </div>
+                    <div class="profile-item">
+                        <div class="profile-label">உயரம்:</div>
+                        <div class="profile-value">{{matrimonyData.height}}</div>
+                    </div>
+                    <div class="profile-item">
+                        <div class="profile-label">ராசி:</div>
+                        <div class="profile-value">{{matrimonyData.zodiacSign}}</div>
+                    </div>
+                    <div class="profile-item">
+                        <div class="profile-label">நட்சத்திரம்:</div>
+                        <div class="profile-value">{{matrimonyData.nakshatra}}</div>
+                    </div>
+                    <div class="profile-item">
+                        <div class="profile-label">எதிர்பார்ப்பு:</div>
+                        <div class="profile-value">{{matrimonyData.expectation}}</div>
+                    </div>
+                </div>
+            </div>
 
-        <!-- <div class="charts">
-            <div class="chart">ராசி</div>
-            <img src="murukan.jpg" class="center-img" alt="Murugan">
-            <div class="chart">அம்சம்</div>
-        </div> -->
-        <div class="btn">
-            <button>
-                Save Details
-            </button>
+            <!-- <div class="btn">
+                <button (click)="saveDetails()">
+                    Save Details
+                </button>
+            </div> -->
         </div>
-
     </div>
-</div>

@@ -138,7 +138,7 @@
 
 .search-fields input,
 .search-fields select {
-    width: 100%;
+    /* width: 100%; */
     height: 100%;
     outline: none;
     border: none;
@@ -147,6 +147,7 @@
     color: #333;
     background-color: transparent;
     border-right: 1px solid rgba(255, 0, 0, 0.2);
+    padding:0px 5px;
 }
 
 .search-fields input:focus,
@@ -531,7 +532,7 @@
     gap: 10px;
 }
 
-.action span {
+.action a {
     background: rgba(255, 255, 255, 0.8);
     width: 35px;
     height: 35px;
@@ -542,9 +543,10 @@
     cursor: pointer;
     transition: all 0.3s ease;
     color: #333;
+    text-decoration: none;
 }
 
-.action span:hover {
+.action a:hover {
     background: #d42d2d;
     color: white;
 }
@@ -1200,7 +1202,18 @@
     background: #d00000;
     transform: scale(1.2);
 }
-
+.loading-spinner {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+}
+.review-counter {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 0.8rem;
+    color: #888;
+  }
 /* Responsive Design */
 @media (max-width: 992px) {
     .testimonial-card {

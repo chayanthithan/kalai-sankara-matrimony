@@ -1,4 +1,4 @@
-.container {
+/* .container {
     height: 95vh;
     width: 100%;
     margin: auto;
@@ -52,8 +52,6 @@
 .section {
   width: 100%;
   height: 65%;
-  /* display: flex;
-  flex-direction: column; */
   justify-content: center;
   overflow-y: auto;
   padding-top: 20px;
@@ -75,7 +73,6 @@
   justify-content: center;
   align-items: center;
   font-size: 12px;
-  /* padding: 5px; */
 }
 .inner-section label {
   width: 50%;
@@ -133,4 +130,190 @@
   outline: none;
   border-style: dashed;
   cursor: pointer;
-}
+} */
+
+
+.container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+        
+        .matrimony-details {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #444444, #000000);
+            color: white;
+            padding: 25px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .contact-info {
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 12px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .register_no {
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        
+        .contact-details {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            font-size: 14px;
+        }
+        
+        .contact-details span {
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-details span::before {
+            content: "•";
+            margin-right: 5px;
+        }
+        
+        .description {
+            font-style: italic;
+            font-size: 14px;
+            margin-top: 15px;
+            line-height: 1.5;
+        }
+        
+        .section {
+            padding: 25px;
+        }
+        
+        .profile-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .profile-item {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: flex-start;
+        }
+        
+        .profile-label {
+            font-weight: bold;
+            color: #000000;
+            min-width: 180px;
+            padding-right: 10px;
+            font-size: 15px;
+        }
+        
+        .profile-value {
+            flex: 1;
+            font-size: 18px;
+            padding: 5px 0;
+            border-bottom: 1px dashed #e0e0e0;
+            word-break: break-word;
+            color: #515151;
+            text-align: right;
+        }
+        
+        .siblings-container {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .sibling-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .sibling-label {
+            font-weight: bold;
+            margin-right: 5px;
+            color: #000000;
+        }
+        
+        .btn {
+            text-align: center;
+            padding: 0 25px 25px;
+        }
+        
+        /* .btn button {
+            background: linear-gradient(135deg, #d4a76a, #8e3a1d);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+         */
+        @media (max-width: 768px) {
+            .header {
+                padding: 20px 15px;
+            }
+            
+            .header h3 {
+                font-size: 20px;
+            }
+            
+            .contact-details {
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+            }
+            
+            .profile-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .profile-item {
+                flex-direction: column;
+            }
+            
+            .profile-label {
+                min-width: auto;
+                margin-bottom: 5px;
+            }
+            
+            .siblings-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header {
+                padding: 15px 10px;
+            }
+            
+            .section {
+                padding: 15px;
+            }
+            
+            .profile-label, .profile-value {
+                font-size: 14px;
+            }
+          }

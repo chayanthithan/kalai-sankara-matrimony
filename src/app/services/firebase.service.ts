@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { getDocs, query, where,Firestore, collection, addDoc, collectionData, doc, updateDoc, deleteDoc } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { AdminDto } from '../model/AdminDto';
 
 @Injectable({
@@ -47,10 +47,22 @@ export class FirebaseService {
     const userRef = collection(this.firestore, 'groomAndBrideDetails');
     return addDoc(userRef, matrimony);
   }
-  getMatrimonyDetails(): Observable<any[]> {
-      const userRef = collection(this.firestore, 'groomAndBrideDetails');
+  getReviewDetails(): Observable<any[]> {
+      const userRef = collection(this.firestore, 'reviews');
       return collectionData(userRef, { idField: 'id' });
     }
+  getMatrimonyDetails(filter?: string): Observable<any[]> {
+  const userRef = collection(this.firestore, 'groomAndBrideDetails');
+  return collectionData(userRef, { idField: 'id' }).pipe(
+    map(data => {
+      if (!filter || filter === 'all') {
+        return data;
+      }
+      return data.filter(item => item['category'] === filter);
+    })
+  );
+}
+
   addReviews(review: any) {
     const userRef = collection(this.firestore, 'reviews');
     return addDoc(userRef, review);

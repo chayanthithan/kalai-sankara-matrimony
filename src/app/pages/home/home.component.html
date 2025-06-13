@@ -4,29 +4,52 @@
         <div class="content">
             <p>Explore Your <span>Wedding</span> Needs</p>
             <p>எங்களிடம் அனைத்து சாதியினருக்கும் வரன் அமைத்து தரப்படும்
-                    மற்றும் மறுமணம் பார்ப்தோடு
-                    வெளிநாட்டு வரன்களும் சிறந்த முறையில் நம்பிக்கையுடன் அமைத்து தரப்படும்</p>
+                மற்றும் மறுமணம் பார்ப்தோடு
+                வெளிநாட்டு வரன்களும் சிறந்த முறையில் நம்பிக்கையுடன் அமைத்து தரப்படும்</p>
         </div>
         <div class="search-here">
             <div class="inner-search">
                 <div class="search-fields">
-                    <input type="text" placeholder="Gender">
-                    <input type="text" placeholder="Age">
-                    <select name="location" id="location">
+                    <select name="category" id="category" [(ngModel)]="category">
+                        <option selected value="groom">மணமகன்</option>
+                        <option value="bride">மணமகள்</option>
+                    </select>
+                    <input type="text" placeholder="Age" [(ngModel)]="age">
+                    <select name="location" id="location" [(ngModel)]="location">
                         <option value="Kilinochchi">Kilinochchi</option>
                         <option value="Jaffna">Jaffna</option>
                         <option value="Mullaittivu">Mullaittivu</option>
                         <option value="Vavuniya">Vavuniya</option>
                         <option value="Mannar">Mannar</option>
+                        <option value="Mannar">Ampara </option>
+                        <option value="Mannar">Batticaloa</option>
+                        <option value="Mannar">Trincomalee</option>
+                        <option value="Mannar">Anuradhapura</option>
+                        <option value="Mannar">Polonnaruwa</option>
+                        <option value="Mannar">Kurunegala</option>
+                        <option value="Mannar">Puttalam</option>
+                        <option value="Mannar">Colombo </option>
+                        <option value="Mannar">Gampaha </option>
+                        <option value="Mannar">Kalutara</option>
+                        <option value="Mannar">Kandy</option>
+                        <option value="Mannar">Matale</option>
+                        <option value="Mannar">Nuwara Eliya</option>
+                        <option value="Mannar">Kegalle</option>
+                        <option value="Mannar">Ratnapura</option>
+                        <option value="Mannar">Badulla</option>
+                        <option value="Mannar">Monaragala</option>
+                        <option value="Mannar">Galle</option>
+                        <option value="Mannar">Hambantota</option>
+                        <option value="Mannar">Matara</option>
                     </select>
-                    <button>search</button>
+                    <button (click)="searchMatrimonyDetailsByFewFields()">search</button>
                 </div>
             </div>
         </div>
         <div class="contact-info">
             <div class="phone">
                 <span>Contact Now</span>
-                <span>+94 077 12 12 123</span>
+                <span>(+94) 074 05 67 003 / 077 44 77 463</span>
             </div>
             <div class="social-links">
                 <div>
@@ -49,26 +72,30 @@
         </div>
         <div class="filter">
             <div class="filter-options">
-                <button [ngClass]="{ 'active': selectedCategory === 'all' }" (click)="selectCategory('all')">All</button>
-                <button [ngClass]="{ 'active': selectedCategory === 'groom' }" (click)="selectCategory('groom')">Groom</button>
-                <button [ngClass]="{ 'active': selectedCategory === 'bride' }" (click)="selectCategory('bride')">Bride</button>
+                <button [ngClass]="{ 'active': selectedCategory === 'all' }"
+                    (click)="fetchMatrimonyDetails('all')">All</button>
+                <button [ngClass]="{ 'active': selectedCategory === 'groom' }"
+                    (click)="fetchMatrimonyDetails('groom')">Groom</button>
+                <button [ngClass]="{ 'active': selectedCategory === 'bride' }"
+                    (click)="fetchMatrimonyDetails('bride')">Bride</button>
             </div>
             <div class="filter-search">
-                <input type="text" name="search" id="search" placeholder="type here.. ">
+                <input (input)="onSearch($event)" type="text" name="search" id="search" placeholder="type here.. ">
                 <button>search</button>
             </div>
 
         </div>
         <div class="posts">
             <!-- card 01 -->
-             
+
             <div *ngFor="let matrimony of this.matrimonyDetails" class="card">
                 <div class="profile">
                     <div class="inner-profile">
-                        <img [src]="matrimony.category === 'groom'?'/young-handsome-groom-smiling-holding-bridal-bouquet.jpg':'young-beautiful-stylish-woman-wedding-dress (1).jpg'" alt="groom">
+                        <img [src]="matrimony.category === 'groom'?'/young-handsome-groom-smiling-holding-bridal-bouquet.jpg':'young-beautiful-stylish-woman-wedding-dress (1).jpg'"
+                            alt="groom">
                     </div>
                     <div class="action">
-                        <span class="material-icons">open_in_new</span>
+                        <a [routerLink]="['/matrimony-details']" [state]="{ matrimonyData: matrimony }" class="material-icons">open_in_new</a>
                     </div>
                 </div>
                 <div class="Matrimony-info">
@@ -92,14 +119,14 @@
                 <div class="getintouch">
 
                     <div class="view">
-                        <button>Get in touch</button>
+                        <button routerLink="/contact">Get in touch</button>
                     </div>
                 </div>
             </div>
         </div>
         <div class="btn">
             <div>
-                <button>Load more</button>
+                <button (click)="showAllRecords()">{{this.showAll?'Show Less':'Load More'}}</button>
             </div>
         </div>
     </div>
@@ -136,7 +163,7 @@
         <h2>Our Success Stories</h2>
         <p>Real couples who found love through us</p>
     </div>
-    
+
     <div class="gallery-grid">
         <!-- Image 1 -->
         <div class="gallery-card">
@@ -144,84 +171,84 @@
             <div class="card-overlay">
                 <h3>Raj & Priya</h3>
                 <p>Married: 2023</p>
-                <button class="view-story">View Story</button>
+                <!-- <button class="view-story">View Story</button> -->
             </div>
         </div>
-        
+
         <!-- Image 2 -->
         <div class="gallery-card">
             <img src="/pic2.jpg" alt="Happy Couple 2">
             <div class="card-overlay">
                 <h3>Kumar & Anjali</h3>
                 <p>Married: 2023</p>
-                <button class="view-story">View Story</button>
+                <!-- <button class="view-story">View Story</button> -->
             </div>
         </div>
-        
+
         <!-- Image 3 -->
         <div class="gallery-card">
             <img src="/pic3.jpg" alt="Happy Couple 3">
             <div class="card-overlay">
                 <h3>Arun & Meena</h3>
                 <p>Married: 2023</p>
-                <button class="view-story">View Story</button>
+                <!-- <button class="view-story">View Story</button> -->
             </div>
         </div>
-        
+
         <!-- Image 4 -->
         <div class="gallery-card">
             <img src="/pic4.jpg" alt="Happy Couple 4">
             <div class="card-overlay">
                 <h3>Vijay & Lakshmi</h3>
                 <p>Married: 2023</p>
-                <button class="view-story">View Story</button>
+                <!-- <button class="view-story">View Story</button> -->
             </div>
         </div>
-        
+
         <!-- Image 5 -->
         <div class="gallery-card">
             <img src="/pic5.jpg" alt="Happy Couple 5">
             <div class="card-overlay">
                 <h3>Sanjay & Geetha</h3>
                 <p>Married: 2023</p>
-                <button class="view-story">View Story</button>
+                <!-- <button class="view-story">View Story</button> -->
             </div>
         </div>
-        
+
         <!-- Image 6 -->
         <div class="gallery-card">
             <img src="/pic6.jpg" alt="Happy Couple 6">
             <div class="card-overlay">
                 <h3>Ravi & Shanti</h3>
                 <p>Married: 2023</p>
-                <button class="view-story">View Story</button>
+                <!-- <button class="view-story">View Story</button> -->
             </div>
         </div>
-        
+
         <!-- Image 7 -->
         <div class="gallery-card">
             <img src="/pic7.jpg" alt="Happy Couple 7">
             <div class="card-overlay">
                 <h3>Manoj & Kavita</h3>
                 <p>Married: 2023</p>
-                <button class="view-story">View Story</button>
+                <!-- <button class="view-story">View Story</button> -->
             </div>
         </div>
-        
+
         <!-- Image 8 -->
         <div class="gallery-card">
             <img src="/pic8.jpg" alt="Happy Couple 8">
             <div class="card-overlay">
                 <h3>Deepak & Sunita</h3>
                 <p>Married: 2023</p>
-                <button class="view-story">View Story</button>
+                <!-- <button class="view-story">View Story</button> -->
             </div>
         </div>
     </div>
-    
+
     <div class="gallery-cta">
         <p>Could you be our next success story?</p>
-        <a routerLink="/contact" class="cta-button">Find Your Match</a>
+        <a href="#Matrimonial-Listings" class="cta-button">Find Your Match</a>
     </div>
 </div>
 <!-- reviews -->
@@ -232,23 +259,24 @@
             <p>What our happy couples say about us. <a routerLink="/reviews">post your thoughs</a></p>
         </div>
 
-        <div class="testimonials-carousel">
-            <button class="carousel-arrow left-arrow">
+        <div class="testimonials-carousel" *ngIf="!isLoading; else loading">
+            <button (click)="prevReview()" [disabled]="allReviewsDetails.length === 0"
+                class="carousel-arrow left-arrow">
                 <span class="material-icons">chevron_left</span>
             </button>
-            
+
             <div class="testimonials-track">
                 <!-- Testimonial 1 -->
-                <div class="testimonial-card active">
+                <div *ngIf="currentReview" class="testimonial-card active">
                     <div class="couple-photo">
                         <img src="/pic2.jpg" alt="Happy Couple">
                     </div>
                     <div class="testimonial-content">
                         <div class="quote-icon">“</div>
-                        <p class="testimonial-text">This matrimony service changed our lives! We found each other through this platform and couldn't be happier. The team provided excellent support throughout our journey.</p>
+                        <p class="testimonial-text">{{currentReview.message}}.</p>
                         <div class="couple-info">
-                            <h4>Priya & Raj</h4>
-                            <p>Married December 2022</p>
+                            <h4>{{currentReview.groomName}} & {{currentReview.brideName}}</h4>
+                            <p>Married {{currentReview.weddingDate}}</p>
                         </div>
                         <div class="rating">
                             <span class="material-icons">star</span>
@@ -261,7 +289,7 @@
                 </div>
 
                 <!-- Testimonial 2 -->
-                <div class="testimonial-card">
+                <!-- <div class="testimonial-card">
                     <div class="couple-photo">
                         <img src="/african-american-man-working-laptop.jpg" alt="Happy Couple">
                     </div>
@@ -280,10 +308,10 @@
                             <span class="material-icons">star</span>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- Testimonial 3 -->
-                <div class="testimonial-card">
+                <!-- <div class="testimonial-card">
                     <div class="couple-photo">
                         <img src="/pic1.jpg" alt="Happy Couple">
                     </div>
@@ -302,19 +330,28 @@
                             <span class="material-icons">star_half</span>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
 
-            <button class="carousel-arrow right-arrow">
+            <button (click)="nextReview()" [disabled]="allReviewsDetails.length === 0"
+                class="carousel-arrow right-arrow">
                 <span class="material-icons">chevron_right</span>
             </button>
         </div>
 
-        <div class="carousel-dots">
+        <!-- <div class="carousel-dots">
             <span class="dot active"></span>
             <span class="dot"></span>
             <span class="dot"></span>
+        </div> -->
+        <div class="review-counter" *ngIf="allReviewsDetails.length > 0">
+            {{ currentIndex + 1 }} / {{ allReviewsDetails.length }}
         </div>
     </div>
 </div>
 <!-- Our-Success-Stories -->
+<ng-template #loading>
+    <div class="loading-spinner">
+        Loading reviews...
+    </div>
+</ng-template>

@@ -1,4 +1,6 @@
-export interface Reviews{
-name:string,
-message:string;
+export interface Reviews {
+  brideName: string;
+  groomName: string;
+  message: string;
+  weddingDate: string;
 }
