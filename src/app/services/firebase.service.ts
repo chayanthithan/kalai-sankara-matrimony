@@ -51,6 +51,11 @@ export class FirebaseService {
       const userRef = collection(this.firestore, 'reviews');
       return collectionData(userRef, { idField: 'id' });
     }
+  getContactDetails(): Observable<any[]> {
+      const userRef = collection(this.firestore, 'contact details');
+      return collectionData(userRef, { idField: 'id' });
+    }
+
   getMatrimonyDetails(filter?: string): Observable<any[]> {
   const userRef = collection(this.firestore, 'groomAndBrideDetails');
   return collectionData(userRef, { idField: 'id' }).pipe(

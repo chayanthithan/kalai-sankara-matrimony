@@ -22,11 +22,10 @@ export const routes: Routes = [
       { path: 'reviews', component: ReviewsComponent },
       { path: 'matrimony-details', component: MatrimonyComponent },
       { path: 'home', component: HomeComponent },
-      { path: '**', redirectTo: 'home' }
     ]
   },
   {
-    path: '',
+    path: 'auth',
     component: EmptyLayoutComponent,
     children: [
       { path: 'login', component: LoginComponent },
@@ -34,11 +33,11 @@ export const routes: Routes = [
     ]
   },
   {
-    path: '',
+    path: 'admin',
     component: AdminComponent,
     children: [
-      { path: 'admin/addpost', component: AddpostComponent },
-      { path: 'admin/dashboard', component: DashboardComponent },
+      { path: 'addpost', component: AddpostComponent },
+      { path: 'dashboard', component: DashboardComponent },
     ]
   },
 ];

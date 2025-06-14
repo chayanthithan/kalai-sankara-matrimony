@@ -1,18 +1,36 @@
-<div class="header-container">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- new -->
+ <div class="header-container">
     <div class="header">
         <!-- Logo Section -->
         <div class="logo-section">
-            <img src="/kalai-sankaralogo.png" alt="Kalai Sankara Matrimony Logo" class="logo-img">
+            <!-- 2b52bf47-6054-40c0-8598-caf7cedf7e2a_removalai_preview.png -->
+            <img src="/56d8cdaa-a3f4-4041-bfa7-20c3a4f5f3e0_removalai_preview.png" alt="Kalai Sankara Matrimony Logo" class="logo-img">
             <div class="logo-text">
                 <h1 class="tamil-title">கலை சங்கரா</h1>
                 <p class="english-subtitle">திருமண சேவை</p>
+                
             </div>
         </div>
-
-        <!-- Navigation Links -->
-        <nav class="nav-links" [class.active]="isMenuOpen">
-            <ul class="nav-menu">
-                <li class="nav-item">
+        <div>
+            <nav class="nav-links">
+                <ul class="nav-menu">
+                    <!-- Your existing nav items -->
+                     <li class="nav-item">
                     <a href="#Home" class="nav-link" (click)="closeMenu()">
                         <span>Home</span>
                         <div class="link-underline"></div>
@@ -36,22 +54,71 @@
                         <div class="link-underline"></div>
                     </a>
                 </li>
-            </ul>
-        </nav>
-
-        <!-- Admin/Auth Section -->
-        <div class="auth-section">
-            <button class="login-btn" routerLink="/login">
-                <span class="btn-icon">👤</span>
-                <span class="btn-text">Sign In</span>
-            </button>
-            
-            <!-- Mobile Menu Toggle -->
-            <div class="mobile-menu-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+                </ul>
+            </nav>
+        </div>
+        <!-- Desktop Navigation & Auth -->
+        <div class="desktop-only">
+            <div class="auth-section">
+                <div class="social-links">
+                <div>
+                    <a href="https://www.facebook.com/kalai.cankara.tirumana.cevai.kalai.canka?mibextid=ZbWKwL"><img src="/facebook (2).png" alt=""></a>
+                </div>
+                <div>
+                    <a href="https://wa.me/94763244160?text=Hello!%0A%20I%20would%20like%20to%20know%20more%20about%20your%20services"
+            target="_blank"><img src="/instagram (1).png" alt=""></a>
+                </div>
+                <div>
+                    <a href="https://wa.me/94763244160?text=Hello!%0A%20I%20would%20like%20to%20know%20more%20about%20your%20services"
+            target="_blank"><img src="/whatsapp.png" alt=""></a>
+                </div>
+                </div>
+                <button class="login-btn" routerLink='/auth/login'>
+                    <span class="btn-icon">👤</span>
+                    <span class="btn-text">Sign In</span>
+                </button>
             </div>
         </div>
+
+        <!-- Mobile Menu Toggle -->
+        <div class="mobile-menu-toggle" (click)="toggleMenu()">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </div>
+
+    <!-- Mobile Sidebar -->
+    <div class="mobile-sidebar" [class.active]="isMenuOpen">
+        <nav class="mobile-nav">
+            <ul>
+                <li><a href="#Home" (click)="closeMenu()">Home</a></li>
+                <li><a href="#Gallery" (click)="closeMenu()">Gallery</a></li>
+                <li><a routerLink="/about" (click)="closeMenu()">About Us</a></li>
+                <li><a routerLink="/contact" (click)="closeMenu()">Contact Us</a></li>
+            </ul>
+            
+            <div class="mobile-auth">
+                <div class="mobile-social-links">
+                    <div class="social-links">
+                <div>
+                    <a href="https://www.facebook.com/kalai.cankara.tirumana.cevai.kalai.canka?mibextid=ZbWKwL"><img src="/facebook (2).png" alt=""></a>
+                </div>
+                <div>
+                    <a href="https://wa.me/94763244160?text=Hello!%0A%20I%20would%20like%20to%20know%20more%20about%20your%20services"
+            target="_blank"><img src="/instagram (1).png" alt=""></a>
+                </div>
+                <div>
+                    <a href="https://wa.me/94763244160?text=Hello!%0A%20I%20would%20like%20to%20know%20more%20about%20your%20services"
+            target="_blank"><img src="/whatsapp.png" alt=""></a>
+                </div>
+            </div>
+                </div>
+                <button class="mobile-login-btn" routerLink='/auth/login' (click)="closeMenu()">
+                    <span class="btn-icon">👤</span>
+                    <span class="btn-text">Sign In</span>
+                </button>
+            </div>
+        </nav>
     </div>
 </div>

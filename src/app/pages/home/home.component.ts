@@ -3,13 +3,15 @@ import { Router, RouterLink } from '@angular/router';
 import { GroomAndBrideDetails } from '../../model/GroomAndBrideDetails';
 import { FirebaseService } from '../../services/firebase.service';
 import { error } from 'console';
-import { CommonModule } from '@angular/common';
 import { Reviews } from '../../model/Reviews';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, CommonModule, FormsModule],
+  standalone: true,
+  imports: [FormsModule, CommonModule, RouterLink, RouterModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
@@ -29,8 +31,8 @@ export class HomeComponent implements OnInit {
   isLoading: boolean = true;
 
   age!: number;
-  category!: string;
-  location!: string;
+  category: string = "groom";
+  location: string = "Kilinochchi";
   ngOnInit(): void {
     this.getAllReviews();
     this.fetchMatrimonyDetails('all');
@@ -131,23 +133,29 @@ export class HomeComponent implements OnInit {
   }
 
   searchMatrimonyDetailsByFewFields() {
-  // Reset to all records before applying new filters
-  this.matrimonyDetails = [...this.allMatrimonyDetails];
+    // Reset to all records before applying new filters
+    this.matrimonyDetails = [...this.allMatrimonyDetails];
 
-  // Convert empty strings ("") to undefined for age (if age is a number)
-  const ageFilter = this.age.toString() === "" ? undefined : this.age;
+    // Convert empty strings ("") to undefined for age (if age is a number)
+    const ageFilter = this.age.toString() === '' ? undefined : this.age;
 
-  // Apply filters only if any field is defined
-  if (ageFilter !== undefined || this.category !== undefined || this.location !== undefined) {
-    this.matrimonyDetails = this.matrimonyDetails.filter(item => {
-      const ageMatch = ageFilter === undefined || item.age === ageFilter;
-      const categoryMatch = this.category === undefined || 
-                          (item.category && item.category.toLowerCase() === this.category.toLowerCase());
-      // const locationMatch = this.location === undefined || 
-      //                      (item.location && item.location.toLowerCase() === this.location.toLowerCase());
+    // Apply filters only if any field is defined
+    if (
+      ageFilter !== undefined ||
+      this.category !== undefined ||
+      this.location !== undefined
+    ) {
+      this.matrimonyDetails = this.matrimonyDetails.filter((item) => {
+        const ageMatch = ageFilter === undefined || item.age === ageFilter;
+        const categoryMatch =
+          this.category === undefined ||
+          (item.category &&
+            item.category.toLowerCase() === this.category.toLowerCase());
+        // const locationMatch = this.location === undefined ||
+        //                      (item.location && item.location.toLowerCase() === this.location.toLowerCase());
 
-      return ageMatch && categoryMatch ; //&& locationMatch
-    });
+        return ageMatch && categoryMatch; //&& locationMatch
+      });
+    }
   }
-}
 }

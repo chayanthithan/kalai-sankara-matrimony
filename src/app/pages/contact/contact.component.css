@@ -59,7 +59,7 @@
     bottom: 0;
     width: 60px;
     height: 3px;
-    background: #e83e8c;
+    background: #e83e3e;
 }
 
 .form-group {
@@ -80,7 +80,7 @@
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-    border-color: #e83e8c;
+    border-color: #e83e3e;
     outline: none;
 }
 
@@ -90,7 +90,7 @@
 }
 
 button[type="submit"] {
-    background: #e83e8c;
+    background: #e83e3e;
     color: white;
     border: none;
     padding: 12px 30px;
@@ -102,7 +102,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background: #d42d7b;
+    background: #d42d2d;
 }
 
 /* Contact Info Section */
@@ -134,7 +134,7 @@ button[type="submit"]:hover {
     justify-content: center;
     margin-right: 20px;
     flex-shrink: 0;
-    color: #e83e8c;
+    color: #e83e3e;
 }
 
 .info-text h3 {
@@ -171,7 +171,7 @@ button[type="submit"]:hover {
     bottom: 0;
     width: 60px;
     height: 3px;
-    background: #e83e8c;
+    background: #e83e3e;
 }
 
 .map-container {

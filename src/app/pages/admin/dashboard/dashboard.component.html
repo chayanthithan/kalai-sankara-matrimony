@@ -1,8 +1,13 @@
 <div class="admin-panel">
+
     <div class="matrimony-details">
+
         <div class="search-options">
-            <button>Matrimony Details</button>
-            <button>Reviews</button>
+            <button [ngClass]="!isReview && !isContact?'active_custom-table':''"
+                (click)="triggerButtons('matrimonyDetails')">Matrimony Details</button>
+            <button [ngClass]="isReview?'active_custom-table':''" (click)="triggerButtons('reviews')">Reviews</button>
+            <button [ngClass]="isContact?'active_custom-table':''" (click)="triggerButtons('contact')">Contact
+                Info</button>
             <div class="search-box">
                 <input type="text" placeholder="Search...">
                 <span class="material-icons">search</span>
@@ -10,23 +15,136 @@
         </div>
         <div class="table-container">
             <div class="table-wrapper">
-                <table class="custom-table">
-                    <thead>
-                        <tr>
-                            <th *ngFor="let header of headers.slice(0, 14)">{{ header }}</th>
-                            <th class="sticky-column">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let row of data">
-                            <td *ngFor="let col of row.slice(0, 14)">{{ col }}</td>
-                            <td class="sticky-column">
-                                <button (click)="edit(row)">Edit</button>
-                                <button (click)="delete(row)">Delete</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+
+                <!-- matrimonydetails -->
+                <div *ngIf="!isReview && !isContact" class="custom-table">
+                    <div class="add-btn"><button routerLink="/admin/addpost">+ Add</button></div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <!-- <th *ngFor="let header of this.headers">{{ header }}</th> -->
+                                <th>id</th>
+                                <th>fname</th>
+                                <th>lname</th>
+                                <th>dob</th>
+                                <th>age</th>
+                                <th>zodiacSign</th>
+                                <th>nakshatra</th>
+                                <th>caste</th>
+                                <th>color</th>
+                                <th>education</th>
+                                <th>expectation</th>
+                                <th>height</th>
+                                <th>zodiacSign</th>
+                                <th>willingCaste</th>
+                                <th>fatherName</th>
+                                <th>fatherBirthPlace</th>
+                                <th>motherName</th>
+                                <th>motherBirthPlace</th>
+                                <th>siblingBoys</th>
+                                <th>siblingGirls</th>
+                                <th class="sticky-column">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let row of matrimonyDetailsList let i=index">
+                                <td>{{ i+1}}</td>
+                                <td>{{ row.fname }}</td>
+                                <td>{{row.lname}}</td>
+                                <td>{{row.dob}}</td>
+                                <td>{{row.age}}</td>
+                                <td>{{row.zodiacSign}}</td>
+                                <td>{{row.nakshatra}}</td>
+                                <td>{{row.caste}}</td>
+                                <td>{{row.color}}</td>
+                                <td>{{row.education}}</td>
+                                <td>{{row.expectation}}</td>
+                                <td>{{row.height}}</td>
+                                <td>{{row.zodiacSign}}</td>
+                                <td>{{row.willingCaste}}</td>
+                                <td>{{row.fatherName}}</td>
+                                <td>{{row.fatherBirthPlace}}</td>
+                                <td>{{row.motherName}}</td>
+                                <td>{{row.motherBirthPlace}}</td>
+                                <td>{{row.siblingBoys}}</td>
+                                <td>{{row.siblingGirls}}</td>
+                                <td class="sticky-column">
+                                    <!-- <button (click)="edit(row)">Edit</button> -->
+                                    <span class="material-icons">edit</span>
+                                    <span class="material-icons">visibility</span>
+                                    <span class="material-icons">delete</span>
+                                    <!-- <button (click)="edit(row)">View</button> -->
+                                    <!-- <button (click)="delete(row)">Delete</button> -->
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div *ngIf="isReview" class="custom-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <!-- <th *ngFor="let header of this.headers">{{ header }}</th> -->
+                                <th>id</th>
+                                <th>Bride Name</th>
+                                <th>Groom Name</th>
+                                <th>Message</th>
+                                <th>Wedding Date</th>
+                                <th class="sticky-column">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let row of reviewDetailsList let i=index">
+                                <td>{{ i+1}}</td>
+                                <td>{{ row.brideName}}</td>
+                                <td>{{row.groomName}}</td>
+                                <td>{{row.message}}</td>
+                                <td>{{row.weddingDate}}</td>
+                                <td class="sticky-column">
+                                    <!-- <button (click)="edit(row)">Edit</button> -->
+                                    <span class="material-icons">edit</span>
+                                    <span class="material-icons">visibility</span>
+                                    <span class="material-icons">delete</span>
+                                    <!-- <button (click)="edit(row)">View</button> -->
+                                    <!-- <button (click)="delete(row)">Delete</button> -->
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div *ngIf="isContact" class="custom-table">
+                    <table >
+                        <thead>
+                            <tr>
+                                <!-- <th *ngFor="let header of this.headers">{{ header }}</th> -->
+                                <th>id</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Mobile No</th>
+                                <th>Message</th>
+                                <th class="sticky-column">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let row of contactDetailsList let i=index">
+                                <td>{{ i+1}}</td>
+                                <td>{{ row.name }}</td>
+                                <td>{{row.email}}</td>
+                                <td>{{row.mobile}}</td>
+                                <td>{{row.message}}</td>
+                                <td class="sticky-column">
+                                    <!-- <button (click)="edit(row)">Edit</button> -->
+                                    <span class="material-icons">edit</span>
+                                    <span class="material-icons">visibility</span>
+                                    <span class="material-icons">delete</span>
+                                    <!-- <button (click)="edit(row)">View</button> -->
+                                    <!-- <button (click)="delete(row)">Delete</button> -->
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
         </div>
     </div>

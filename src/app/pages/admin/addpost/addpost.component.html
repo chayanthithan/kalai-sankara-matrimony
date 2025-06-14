@@ -1,6 +1,6 @@
 <div class="admin-panel">
     <div class="matrimony-service-form">
-        <div class="header-section">
+        <!-- <div class="header-section">
             <h1 class="title">கலை சாங்கரா திருமண சேவை</h1>
 
             <div class="contact-info">
@@ -18,7 +18,7 @@
                 <p>எங்களிடம் அனைத்து சாதியினருக்கும் வரன் அமைத்து தரப்படும் மற்றும் மறுமணம் பார்ப்தோடு வெளிநாட்டு
                     வரன்களும் சிறந்த முறையில் நம்பிக்கையுடன் அமைத்து தரப்படும்</p>
             </div>
-        </div>
+        </div> -->
 
         <div class="form-section" [formGroup]="groomAndBrideDetails">
             <div class="form-grid">
@@ -121,6 +121,7 @@
             <button (click)="addPost()" class="save-btn">
                 Save Details
             </button>
+            <button routerLink="/admin/dashboard" class="view-btn">View</button>
         </div>
     </div>
 </div>
