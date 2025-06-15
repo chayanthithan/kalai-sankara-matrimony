@@ -24,104 +24,104 @@
             <div class="form-grid">
                 <div class="form-group">
                     <label>தேர்ந்தெடுக்கவும்:</label>
-                    <select name="category" id="category" formControlName="category">
-                        <option value="groom">மணமகன்</option>
+                    <select  name="category" id="category" formControlName="category">
+                        <option  value="groom">மணமகன்</option>
                         <option value="bride">மணமகள்</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label>முதல் பெயர்:</label>
-                    <input formControlName="fname" type="text">
+                    <input [readonly]="this.__firebase.isViewMode" formControlName="fname" type="text">
                 </div>
                 <div class="form-group">
                     <label>இரண்டாவது பெயர்:</label>
-                    <input formControlName="lname" type="text">
+                    <input [readonly]="this.__firebase.isViewMode" formControlName="lname" type="text">
                 </div>
                 <div class="form-group">
                     <label>நிறம்:</label>
-                    <input formControlName="color" type="text">
+                    <input [readonly]="this.__firebase.isViewMode" formControlName="color" type="text">
                 </div>
                 <div class="form-group">
                     <label>பிறந்த நாள்:</label>
-                    <input formControlName="dob" type="date">
+                    <input [readonly]="this.__firebase.isViewMode" formControlName="dob" type="date">
                 </div>
                 <div class="form-group">
                     <label>பிறந்த நேரம்:</label>
-                    <input formControlName="time" type="time">
+                    <input [readonly]="this.__firebase.isViewMode" formControlName="time" type="time">
                 </div>
                 <div class="form-group">
                     <label>வயது:</label>
-                    <input formControlName="age" type="number">
+                    <input [readonly]="this.__firebase.isViewMode" formControlName="age" type="number">
                 </div>
                 <div class="form-group">
                     <label>கல்வி:</label>
-                    <input formControlName="education" type="text">
+                    <input [readonly]="this.__firebase.isViewMode" [readonly]="this.__firebase.isViewMode" formControlName="education" type="text">
                 </div>
                 <div class="form-group">
                     <label>சாதி:</label>
-                    <input formControlName="caste" type="text">
+                    <input [readonly]="this.__firebase.isViewMode" formControlName="caste" type="text">
                 </div>
                 <div class="form-group">
                     <label>தொழில்:</label>
-                    <input formControlName="occupation" type="text">
+                    <input [readonly]="this.__firebase.isViewMode" formControlName="occupation" type="text">
                 </div>
                 <div class="form-group">
                     <label>மணம் முடிக்க விரும்பும் சாதி:</label>
-                    <input formControlName="willingCaste" type="text">
+                    <input [readonly]="this.__firebase.isViewMode" formControlName="willingCaste" type="text">
                 </div>
                 <div class="form-group siblings-group">
                     <label>உடன் பிறப்பு:</label>
                     <div class="siblings-input">
                         <div>
                             <label>ஆண்:</label>
-                            <input formControlName="siblingBoys" type="number">
+                            <input [readonly]="this.__firebase.isViewMode" formControlName="siblingBoys" type="number">
                         </div>
                         <div>
                             <label>பெண்:</label>
-                            <input formControlName="siblingGirls" type="number">
+                            <input [readonly]="this.__firebase.isViewMode" formControlName="siblingGirls" type="number">
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label>தந்தையின் பெயர்:</label>
-                    <input formControlName="fatherName" type="text">
+                    <input [readonly]="this.__firebase.isViewMode" formControlName="fatherName" type="text">
                 </div>
                 <div class="form-group">
                     <label>தாயின் பெயர்:</label>
-                    <input formControlName="motherName" type="text">
+                    <input [readonly]="this.__firebase.isViewMode" formControlName="motherName" type="text">
                 </div>
                 <div class="form-group">
                     <label>தந்தை சொந்த இடம்:</label>
-                    <input formControlName="fatherBirthPlace" type="text">
+                    <input [readonly]="this.__firebase.isViewMode" formControlName="fatherBirthPlace" type="text">
                 </div>
                 <div class="form-group">
                     <label>தாய் சொந்த இடம்:</label>
-                    <input formControlName="motherBirthPlace" type="text">
+                    <input [readonly]="this.__firebase.isViewMode" formControlName="motherBirthPlace" type="text">
                 </div>
                 <div class="form-group">
                     <label>உயரம்:</label>
-                    <input formControlName="height" type="text">
+                    <input [readonly]="this.__firebase.isViewMode" formControlName="height" type="text">
                 </div>
                 <div class="form-group">
                     <label>ராசி:</label>
-                    <input formControlName="zodiacSign" type="text">
+                    <input [readonly]="this.__firebase.isViewMode" formControlName="zodiacSign" type="text">
                 </div>
                 <div class="form-group">
                     <label>நட்சத்திரம்:</label>
-                    <input formControlName="nakshatra" type="text">
+                    <input [readonly]="this.__firebase.isViewMode" formControlName="nakshatra" type="text">
                 </div>
                 <div class="form-group">
                     <label>எதிர்பார்ப்பு:</label>
-                    <input formControlName="expectation" type="text">
+                    <input [readonly]="this.__firebase.isViewMode" formControlName="expectation" type="text">
                 </div>
             </div>
         </div>
 
-        <div class="action-buttons">
-            <button (click)="addPost()" class="save-btn">
-                Save Details
+        <div class="action-buttons" >
+            <button *ngIf="!__firebase.isViewMode" (click)="addPost()" class="save-btn" type="submit" [disabled]="groomAndBrideDetails.invalid">
+                {{ isEditMode ? 'Update' : 'Create' }}
             </button>
-            <button routerLink="/admin/dashboard" class="view-btn">View</button>
+            <button (click)="onCancel()" class="view-btn">Cancel</button>
         </div>
     </div>
 </div>

@@ -2,13 +2,14 @@
   "name": "kalai-sankara",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "serve:ssr:kalai-sankara": "node dist/kalai-sankara/server/server.mjs"
-  },
+  "ng": "ng",
+  "start": "ng serve",
+  "build": "ng build --configuration=production",
+  "watch": "ng build --watch --configuration=development",
+  "test": "ng test",
+  "serve:ssr:kalai-sankara": "node dist/kalai-sankara/server/server.mjs",
+  "deploy": "ng build --configuration=production && firebase deploy"
+},
   "private": true,
   "dependencies": {
     "@angular/animations": "^20.0.3",

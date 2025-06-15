@@ -10,6 +10,7 @@ import { AddpostComponent } from './pages/admin/addpost/addpost.component';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { ReviewsComponent } from './pages/reviews/reviews.component';
+import { DeleteConfirmationDialogComponent } from './popup/delete-confirmation-dialog/delete-confirmation-dialog.component';
 
 export const routes: Routes = [
   {
@@ -37,7 +38,9 @@ export const routes: Routes = [
     component: AdminComponent,
     children: [
       { path: 'addpost', component: AddpostComponent },
+      { path: 'addpost/:id', component: AddpostComponent },
       { path: 'dashboard', component: DashboardComponent },
+      { path: 'delete', component: DeleteConfirmationDialogComponent },
     ]
   },
 ];

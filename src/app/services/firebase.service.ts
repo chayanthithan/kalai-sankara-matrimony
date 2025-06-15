@@ -9,6 +9,8 @@ import { AdminDto } from '../model/AdminDto';
 export class FirebaseService {
   constructor(private firestore: Firestore) {}
 
+    isViewMode = false;
+
   addUser(user: any) {
     const userRef = collection(this.firestore, 'users');
     return addDoc(userRef, user);
@@ -47,6 +49,16 @@ export class FirebaseService {
     const userRef = collection(this.firestore, 'groomAndBrideDetails');
     return addDoc(userRef, matrimony);
   }
+  updateMatrimonyDetailsPost(id: string, matrimony: any) {
+    const userDocRef = doc(this.firestore, `groomAndBrideDetails/${id}`);
+    return updateDoc(userDocRef, matrimony);
+  }
+  deleteMatrimonyDetailsPost(id: string) {
+    const userDocRef = doc(this.firestore, `groomAndBrideDetails/${id}`);
+    return deleteDoc(userDocRef);
+  }
+
+
   getReviewDetails(): Observable<any[]> {
       const userRef = collection(this.firestore, 'reviews');
       return collectionData(userRef, { idField: 'id' });
